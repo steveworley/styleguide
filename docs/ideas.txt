@@ -1,0 +1,60 @@
+web based cms for style guide repository
+
+
+store the assets, styles(css/scss), html for building each of the components
+
+allow browsing and refactoring LIVE
+
+
+drupal?
+
+one page app?
+
+local storage first, indexedDB
+
+a component could have multiple states: hover, active, inactive, edit, display-only
+these states could be stored in a "sub view"
+we could provide a "live" view of the component
+
+
+store versions of each component (changes to html/style)
+allow commenting on a component (users can submit potential updates)
+store where this component can be found on the live site at the moment (this could update live)
+	poll the live page via ajax and check if the HTML is found
+
+
+
+BACKBONE
+
+
+Projects
+
+Project has many Components
+
+Component has 1 or more States
+
+
+State has html/style
+
+
+
+we dont need a rest API, just use mongo???
+
+
+Mavericking Version
+	Time frame: ???????
+	JavaScript MVC Framework: backbone?
+	backend interface: node
+	Data interface: REST??
+	Backend database: indexedDB/mongo/mysql????
+	Actual interface
+
+
+
+Actual Production FCL Version
+	JavaScript MVC Framework: backbone?
+	data interface: REST
+	backend framework: Symfony
+	Backend database: mongo????
+
+

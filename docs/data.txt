@@ -1,0 +1,56 @@
+GET /projects
+{
+	"projects":[
+		"soar_fcau",
+		"soar_auet",
+		"ess"
+	]
+}
+
+
+GET /projects/soar_fcau
+{
+	"project":{
+		"name":"soar_fcau",
+		"displayName":"SOAR Flight Centre AU"
+	}
+}
+
+
+
+GET /projects/soar_fcau/components/search_button
+{
+	"project":"soar_fcau",
+	"name":"search_button",
+	"states":{
+		"default":{
+			"name":"Default",
+			"html":"<input type='button' value='Search' class='button' />",
+			"style":".button { color:#FFF; }"
+		},
+		"hover":{
+			"name":"Hover",
+			"html":"<input type='button' value='Search' class='button hover' />",
+			"style":".button.hover { color:#00F; }"
+		}
+	}
+}
+
+
+PUT/POST /projects/soar_fcau/components/search_button
+{
+	"project":"soar_fcau",
+	"name":"search_button",
+	"states":{
+		"default":{
+			"name":"Default",
+			"html":"<input type='button' value='Search' class='button' />",
+			"style":".button { color:#FFF; }"
+		},
+		"hover":{
+			"name":"Hover",
+			"html":"<input type='button' value='Search' class='button hover' />",
+			"style":".button.hover { color:#00F; }"
+		}
+	}
+}

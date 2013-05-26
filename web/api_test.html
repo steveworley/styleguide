@@ -1,0 +1,183 @@
+<!doctype>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <script src="vendor/jquery/jquery-2.0.0.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('a').on('click', function(event) {
+        event.preventDefault();
+      })
+      $('#button-3').on('click', function() {
+        $.ajax({
+          url:'http://localhost:3000/projects',
+          method: 'GET',
+          success: function(data) {
+            $('#output-projects').html(JSON.stringify(data));
+          }
+        })
+      });
+      $('#button-1').on('click', function() {
+        $.ajax({
+          url:'http://localhost:3000/projects',
+          method: 'POST',
+          data: {
+            id: 'fc_taau',
+            name: 'Trave Associates Australia',
+            description: 'Travel Associates AU'
+          },
+          success: function(data) {
+            $('#output-projects').html(JSON.stringify(data));
+          }
+        });
+      });
+      $("#button-2").on('click', function() {
+        $.ajax({
+          url:'/projects',
+          method:'DELETE',
+          data: {id: 'fc_taau'},
+          success: function(data) {
+            $('#output-projects').html(JSON.stringify(data));
+          }
+        })
+      });
+      $("#button-2a").on('click', function() {
+        $.ajax({
+          url:'/projects/soar-fcau',
+          method:'PUT',
+          data: {name: 'nekminut'},
+          success: function(data) {
+            $('#output-projects').html(JSON.stringify(data));
+          }
+        })
+      });
+      $("#button-4").on('click', function() {
+        $.ajax({
+          url:'/projects/soar-fcau/components',
+          method:'GET',
+          success: function(data) {
+            $('#output-components').html(JSON.stringify(data));
+          }
+        })
+      });
+      $("#button-5").on('click', function() {
+        $.ajax({
+          url:'/projects/soar-fcau/components/search-button',
+          method:'GET',
+          success: function(data) {
+            $('#output-components').html(JSON.stringify(data));
+          }
+        })
+      });
+
+      $("#button-6").on('click', function() {
+        $.ajax({
+          url:'/projects/soar-fcau/components',
+          method:'POST',
+          data: {
+            "id": "search-button2",
+            "name": "Search Button (Default)",
+            "markup": "<input type=\"button\" value=\"Search\" class=\"button\" />",
+            "style": ".button {\nbackground: url(http://localhost:8000/soar-buttons.png) 0 0 no-repeat;\nborder: 0;\ncolor: #fff;\ncursor: pointer;\nfont-weight: bold;\nfont-size: 14px;\nline-height: 21px;\npadding: 17px 20px;\ntext-align: left;\ntext-shadow: 1px 1px 2px #222;\nheight: 55px;\nwidth: 168px;\n}",
+            "project": "soar-fcau"
+          },
+          success: function(data) {
+            $('#output-components').html(JSON.stringify(data));
+          }
+        })
+      });
+
+      $("#button-7").on('click', function() {
+        $.ajax({
+          url:'/projects/soar-fcau/components/search-button2',
+          method:'DELETE',
+          success: function(data) {
+            $('#output-components').html(JSON.stringify(data));
+          }
+        })
+      });
+    })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row-fluid" style="padding: 20px 0px;">
+      <div class="span12">
+        <h1>NodeJS restful test suite</h1>
+      </div>
+    </div>
+    <div class="row-fluid" style="margin-bottom: 20px;">
+      <div class="span12">
+        <h3>Projects</h3>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="#" id="button-3" class="btn btn-large btn-success">Get all projects</a>
+      </div>
+      <div class="span3">
+        <a href="#" id="button-1" class="btn btn-large btn-danger">Add project</a>
+      </div>
+      <div class="span3">
+        <a href="#" id="button-2" class="btn btn-large btn-warning">Remove project</a>
+      </div>
+      <div class="span3">
+        <a href="#" id="button-2a" class="btn btn-large btn-primary">Update individual</a>
+      </div>
+    </div>
+  <div class="row-fluid" style="margin-top: 20px;">
+    <div class="span12">
+      <pre><code id="output-projects"></code></pre>
+    </div>
+  <div>
+  <div class="row-fluid" style="margin-bottom: 20px;">
+    <div class="span12">
+      <h3>Components</h3>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <a href="#" id="button-4" class="btn btn-large btn-success">Get all components</a>
+    </div>
+    <div class="span3">
+      <a href="#" id="button-5" class="btn btn-large btn-danger">Get component by id</a>
+    </div>
+    <div class="span3">
+      <a href="#" id="button-6" class="btn btn-large btn-warning">Add component</a>
+    </div>
+    <div class="span3">
+      <a href="#" id="button-7" class="btn btn-large btn-primary">Remove component</a>
+    </div>
+  </div>
+  <div class="row-fluid" style="margin-top: 20px;">
+    <div class="span12">
+      <pre><code id="output-components"></code></pre>
+    </div>
+  <div>
+  <div class="row-fluid" style="margin-bottom: 20px;">
+    <div class="span12">
+      <h3>Comments</h3>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <a href="#" id="button-8" class="btn btn-large btn-success">Get all comments</a>
+    </div>
+    <div class="span3">
+      <a href="#" id="button-9" class="btn btn-large btn-danger">Get comment by id</a>
+    </div>
+    <div class="span3">
+      <a href="#" id="button-10" class="btn btn-large btn-warning">Add project</a>
+    </div>
+    <div class="span3">
+      <a href="#" id="button-11" class="btn btn-large btn-primary">Remove project</a>
+    </div>
+  </div>
+  <div class="row-fluid" style="margin-top: 20px;">
+    <div class="span12">
+      <pre><code id="output-comments"></code></pre>
+    </div>
+  <div>
+</body>
+</html>

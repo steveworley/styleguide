@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/styleGuide.css" />
+  </head>
+  <body class="mainPageBody">
+  	<div id="style-guide-app" class="container"></div>
+
+    <script type="text/template" id="tpl-project-list">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="index.html">styleguide</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="breadcrumb">
+          <li class="active">Projects</li>
+        </ul>
+        <ul id="project-list"></ul>
+      </div>
+    </script>
+
+    <script type="text/template" id="tpl-project-list-item">
+      <a href='#/projects/<%= id %>'><%= name %></a>
+    </script>
+
+    <script type="text/template" id="tpl-component-list-item">
+      <td><a href='#/projects/<%= project %>/components/<%= id %>'><%= name %></a></td>
+      <td><button id="remove-component-button" class="btn btn-danger" data-id="<%= id %>">&times;</button></td>
+    </script>
+
+    <script type="text/template" id="tpl-project-detail">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="index.html">styleguide</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="breadcrumb">
+          <li><a href="#/projects">Projects</a> <span class="divider">&gt;</span></li>
+          <li class="active"><%= name %></li>
+        </ul>
+        Project ID: <%= id %><br />
+        Project Name: <%= name %><br />
+        <button id="add-new-component-button" class="btn btn-success">New Component</button>
+        <h2>Components:</h2>
+        <table id="component-list-table" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="component-list"></tbody>
+        </table>
+      </div>
+    </script>
+
+    <script type="text/template" id="tpl-component-detail">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="index.html">styleguide</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="breadcrumb">
+          <li><a href="#/projects">Projects</a> <span class="divider">/</span></li>
+          <li><a href="#/projects/<%= project.id %>"><%= project.name %></a> <span class="divider">/</span></li>
+          <li class="active">View Component</li>
+        </ul>
+        <h3><%= component.name %></h3>
+        <button id="edit-component-button" class="btn">Edit component</button><br />
+      </div>
+      <hr />
+      <h4>Rendered (iframe)</h4>
+      <hr />
+      <iframe id="liveView" src="liveView.html"></iframe>
+      <hr />
+      <h4>Rendered (Shadow DOM)</h4>
+      <hr />
+      <styleguideview id="liveViewDiv"></styleguideview>
+      <hr />
+      <div style="clear:both;"></div>
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h4>Markup</h4>
+            <pre id="markup-editor"></pre>
+          </div>
+          <div class="span6">
+            <h4>Style</h4>
+            <pre id="style-editor"></pre>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="tpl-component-edit">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="index.html">styleguide</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="breadcrumb">
+          <li><a href="#/projects">Projects</a> <span class="divider">/</span></li>
+          <li><a href="#/projects/<%= project.id %>"><%= project.name %></a> <span class="divider">/</span></li>
+          <li class="active">Edit Component</li>
+        </ul>
+        <form class="edit-component-form" onsubmit="return false;">
+          <input type="hidden" name="project.id" value="<%= project.id %>" />
+          <input type="hidden" name="component.id" value="<%= component.id %>" />
+          <div class="row">
+            <div class="span6">
+              <label>ID</label>
+              <input type="text" id="id" class="component-id" value="<%= component.id %>" disabled />
+            </div>
+          </div>
+          <div class="row">
+            <div class="span6">
+              <label>Name</label>
+              <input type="text" id="name" class="component-name" value="<%= component.name %>" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="span6">
+              <label>Markup</label>
+              <pre id="markup-editor"></pre>
+            </div>
+            <div class="span6">
+              <label>Style</label>
+              <pre id="style-editor"></pre>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span12">
+              <button id="cancel-button" class="btn btn-danger">Cancel</button>
+              <button id="save-button" class="btn btn-success">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </script>
+
+    <script type="text/template" id="tpl-component-add-new">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="index.html">styleguide</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="breadcrumb">
+          <li><a href="#/projects">Projects</a> <span class="divider">/</span></li>
+          <li><a href="#/projects/<%= project.id %>"><%= project.name %></a> <span class="divider">/</span></li>
+          <li class="active">Add New Component</li>
+        </ul>
+        <form class="add-component-form" onsubmit="return false;">
+          <input type="hidden" id="projectID" name="project.id" value="<%= project.id %>" />
+          <div class="row">
+            <div class="span6">
+              <h4>ID</h4>
+              <input type="text" id="id" class="component-id" name="component.id" value="" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="span6">
+              <h4>Name</h4>
+              <input type="text" id="name" class="component-name" value="" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="span6">
+              <h4>Markup</h4>
+              <pre id="markup-editor"></pre>
+            </div>
+            <div class="span6">
+              <h4>Style</h4>
+              <pre id="style-editor"></pre>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span12">
+              <button id="cancelButton" class="btn btn-danger">Cancel</button>
+              <button id="saveButton" class="btn btn-success" >Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </script>
+
+  	<script src="vendor/jquery/jquery-2.0.0.min.js"></script>
+  	<script src="vendor/underscore/underscore-min.js"></script>
+  	<script src="vendor/backbone/backbone-min.js"></script>
+  	<script src="vendor/backbone/backbone-relational.js"></script>
+    <script src="vendor/q/q.min.js"></script>
+  	<script src="js/application.js"></script>
+    <script src="vendor/ace/ace.js"></script>
+  </body>
+</html>

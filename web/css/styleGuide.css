@@ -1,0 +1,62 @@
+body {
+	margin:0;
+	padding:0;
+}
+h1 {
+	font-size:24px;
+}
+h2 {
+	font-size:16px;
+}
+h3 {
+	font-size:14px;
+}
+#liveView {
+	border:0;
+	width:100%;
+}
+#style-guide-app  .navbar .brand {
+	padding-right: 0;
+	padding-left: 0;
+	margin-left: 20px;
+	float: right;
+	font-weight: bold;
+	color: #555;
+	text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	transition: all .2s linear;
+}
+.breadcrumb {
+	margin-top:41px;
+}
+.edit-component-form label {
+	font-weight: bold;
+}
+.edit-component-form .component-id,
+	.edit-component-form .component-name {
+	width: 100%;
+}
+.add-component-form .component-id,
+	.add-component-form .component-name {
+	width: 100%;
+}
+#markup-editor,
+	#style-editor {
+	height:300px;
+	width:100%;
+}
+
+#component-list-table th,
+	#component-list-table td {
+	vertical-align: middle;
+}
+#component-list-table th:last-child,
+	#component-list-table td:last-child {
+	text-align: center;
+}
+
+#add-new-component-button {
+	float:right;
+	margin-top:15px;
+}
