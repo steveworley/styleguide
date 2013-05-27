@@ -1,0 +1,88 @@
+{
+    "id": "ess",
+    "name": "ESS",
+    "components": [
+
+    ],
+    "_id": ObjectId("51954a2a4b5530b01a000002")
+}{
+    "id": "studentflights-com-au",
+    "name": "StudentFlights.com.au",
+    "components": [
+
+    ],
+    "_id": ObjectId("51954a2a4b5530b01a000003
+")
+}{
+    "id": "soar-fcau",
+    "name": "SOAR Flight Centre",
+    "components": [
+        {
+            "id": "search-button",
+            "name": "Search B
+utton (Default)",
+            "markup": "<input type=\"button\" value=\"Search\" class=\"button\" />",
+            "style": ".button {\nbackgrou
+nd: url(/assets/soar-buttons.png) 0 0 no-repeat;\nborder: 0;\ncolor: #fff;\ncursor: pointer;\nfont-weight: bold;\nfont-size: 14px;
+\nline-height: 21px;\npadding: 17px 20px;\ntext-align: left;\ntext-shadow: 1px 1px 2px #222;\nheight: 55px;\nwidth: 168px;\n}",
+            "project": "soar-fcau"
+        },
+        {
+            "id": "search-button-hover",
+            "name": "Search Button (Hover)",
+            "markup": "<input
+ type=\"button\" value=\"Search\" class=\"button hover\" />",
+            "style": ".button {\nbackground: url(/assets/soar-buttons.png) 0
+0 no-repeat;\nborder: 0;\ncolor: #fff;\ncursor: pointer;\nfont-weight: bold;\nfont-size: 14px;\nline-height: 21px;\npadding: 17px
+20px;\ntext-align: left;\ntext-shadow: 1px 1px 2px #222;\nheight: 55px;\nwidth: 168px;\n}\n.button.hover {\nbackground-position: -
+218px 0;\n}",
+            "project": "soar-fcau"
+        },
+        {
+            "id": "previous-day-button",
+            "name": "Previous Day Button (Default)",
+            "markup": "<div class=\"previousDay\">Previous<br />Day</div>",
+            "style": ".previousDay {color: #116ab2;font-famil
+y: Arial;font-size: 14px;font-weight: bold;text-transform: uppercase;float: left;width: 104px;height: 27px;padding: 13px 20px 11px
+ 10px;text-align: right;margin-top: 15px;border-top-left-radius: 4px 4px;background: url(\"/assets/btn-prev-next.png\") no-repeat;
+}",
+            "project": "soar-fcau"
+        },
+        {
+            "id": "next-day-button",
+            "name": "Next Day Button (Default)",
+            "markup": "<div class=\"nextDay\">Next<br />Day</div>",
+            "style": ".nextDay {color: #116AB2;font-family: Arial;font-size: 14px;font-weight
+: bold;text-transform: uppercase;float: left;width: 104px;height: 27px;padding: 13px 10px 11px 20px;text-align: left;margin-top: 1
+5px;border-top-right-radius: 4px 4px;background: url(\"/assets/btn-prev-next.png\") no-repeat -135px 0;}",
+            "project": "soar-
+fcau"
+        },
+        {
+            "id": "date-controls",
+            "name": "Date Controls (Default)",
+            "markup": "<div class=\"date-cont
+rols\"><div class=\"previousDay\"><div class=\"previousDayLabel\">Previous<br>Day</div></div><div class=\"currentDate\"><div class
+=\"day\">Friday</div><div class=\"date\">24</div><div class=\"month\">May</div><div class=\"year\">2013</div></div><div class=\"ne
+xtDay\"><div class=\"nextDayLabel\">Next<br>Day</div></div></div>",
+            "style": ".date-controls {\n    float: left;width: 408px;
+\n} \n.currentDate {\n    background: url(\"assets/bg-greyspeckles.png\");\n    width: 140px;\n    height: 56px;\n    float: left;
+\n    padding-top: 10px;\n} \n.currentDate .day {\n    color: #4B4A4A;\n    font-size: 11px;\n    font-family: Arial;\n    font-we
+ight: normal;\n    text-transform: uppercase;\n    text-align: center;\n} \n.currentDate .date {\n    color: #4B4A4A;\n    font-si
+ze: 30px;\n    font-family: Arial;\n    font-weight: bold;\n    line-height: 28px;\n    text-transform: uppercase;\n    text-align
+: center;\n} \n.currentDate .month {\n    color: #4B4A4A;\n    font-size: 11px;\n    font-family: Arial;\n    font-weight: normal;
+\n    text-transform: uppercase;\n    text-align: right;\n    width: 68px;\n    float: left;\n    padding-right: 2px;\n} \n.curren
+tDate .year {\n    color: #4B4A4A;\n    font-size: 11px;\n    font-family: Arial;\n    font-weight: normal;\n    text-transform: u
+ppercase;\n    text-align: left;\n    width: 68px;\n    float: left;\n    padding-left: 2px;\n} \n.previousDay {\n    color: #116a
+b2;\n    font-family: Arial;\n    font-size: 14px;\n    font-weight: bold;\n    text-transform: uppercase;\n    float: left;\n
+width: 104px;\n    height: 27px;\n    padding: 13px 20px 11px 10px;\n    text-align: right;\n    margin-top: 15px;\n    border-top
+-left-radius: 4px 4px;\n    background: url(\"assets/btn-prev-next.png\") no-repeat 0 1px;\n} \n.nextDay {\n    color: #116AB2;\n
+   font-family: Arial;\n    font-size: 14px;\n    font-weight: bold;\n    text-transform: uppercase;\n    float: left;\n    width:
+ 104px;\n    height: 27px;\n    padding: 13px 10px 11px 20px;\n    text-align: left;\n    margin-top: 15px;\n    border-top-right-
+radius: 4px 4px;\n    background: url(\"assets/btn-prev-next.png\") no-repeat -135px 1px;\n} \n.previousDay:hover {\n    color: #F
+FF;\n    background: url(\"assets/btn-prev-next.png\") no-repeat 0 -50px;\n    cursor: pointer;\n}",
+            "project": "soar-fcau"
+        }
+    ],
+    "_id": ObjectId("51954a2a4b5530b01a000001")
+}>

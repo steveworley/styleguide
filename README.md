@@ -2,12 +2,18 @@
 
 The styleguide app that was presented during Friday Mavericking on 24th May. Included in this repo is the front-end and back-end system that we demo'd on Friday.
 
-## NodeJS
+## Setting the Styleguide up locally
 
-The node JS server is created in `server.js`, to run the server you will need to install node, navigate to the directory and run the following comand in a command line tool (CMD, Terminal etc.).
+1. Install Node.js (http://nodejs.org)
+2. Install MongoDB (http://docs.mongodb.org/manual/installation/)
+3. `cd path-to-this-repo` and then `node server` to start the server.
 
-`node server`
+The server will install the test data we used on Friday the first time a request is made if it cannot find the data in the MongoDB.
 
-## Application
+## MongoDB settings
 
-The front-end application is stored in the `public` directory.
+`server: localhost`
+`port: 27017`
+`database: styleguide_db`
+`collection: projects`
+
